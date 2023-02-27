@@ -7,13 +7,28 @@ import okhttp3.ResponseBody;
 
 import java.io.IOException;
 
+/**
+ * RequestManager class is responsible for fetching cat images from thecatapi.com.
+ */
 public class RequestManager {
+    /**
+     * The base URL of the cat API.
+     */
     private static final String CAT_API_URL = "https://api.thecatapi.com/v1/images/search";
 
+    /**
+     * Constructs a new RequestManager object.
+     */
     public RequestManager() {
 
     }
 
+    /**
+     * Fetches a cat image URL from the cat API.
+     *
+     * @return The URL of a cat image as a string.
+     * @throws IOException If there is an error connecting to the API or parsing the response.
+     */
     public String fetchCatImageUrl() {
         OkHttpClient client = new OkHttpClient();
 

@@ -13,13 +13,23 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
 
+/**
+ * The FileManager class provides utility methods for managing files and directories.
+ */
 public class FileManager {
+    /**
+     * The directory where data files are stored.
+     */
     private static final String DATA_DIR = "data";
 
     public FileManager() {
 
     }
 
+    /**
+     * Creates the data directory if it does not exist.
+     * If an error occurs while creating the directory, the program exits with an error code.
+     */
     public void createDataDirIfNotExist() {
         Path dataDirPath = Paths.get(DATA_DIR);
         if (!Files.exists(dataDirPath)) {
@@ -32,6 +42,13 @@ public class FileManager {
         }
     }
 
+    /**
+     * Saves a cat image to the data directory.
+     * The image is downloaded from the specified URL, and a unique filename is generated for it.
+     * If the image file already exists in the data directory, no action is taken.
+     *
+     * @param imageUrl the URL of the cat image to save
+     */
     public void saveCatImageLocally(String imageUrl) {
         // Generate unique filename for image
         String extension = imageUrl.substring(imageUrl.lastIndexOf('.'));
